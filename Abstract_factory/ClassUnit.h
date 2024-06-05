@@ -52,7 +52,10 @@ public:
     {
         PUBLIC,
         PROTECTED,
-        PRIVATE
+        PRIVATE,
+        INTERNAL,
+        PROTECTED_INTERNAL,
+        PRIVAT_PROTECTED
     };
     static const vector<string> ACCESS_MODIFIERS;
 public:
@@ -72,7 +75,8 @@ public:
     {
         PUBLIC,
         PROTECTED,
-        PRIVATE
+        PRIVATE,
+        DEFAULT
     };
     static const vector<string> ACCESS_MODIFIERS;
 public:

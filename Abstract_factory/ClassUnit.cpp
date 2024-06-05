@@ -100,7 +100,7 @@ void CSUnit::add(const shared_ptr<Unit>& unit, Flags flags)
 
 string CSUnit::compile(unsigned int level) const
 {
-    string result = generateShift(level) + "class " + m_name + " {\n";
+    string result = generateShift(level) + "public class " + m_name + " {\n";
 
     for (size_t i = 0; i < ACCESS_MODIFIERS.size(); ++i)
     {
@@ -108,16 +108,16 @@ string CSUnit::compile(unsigned int level) const
         {
             continue;
         }
-        result += ACCESS_MODIFIERS[i] + ":\n";
         for (const auto& f : m_fields[i])
         {
-            result += f->compile(level + 1);
+            result += generateShift(level + 1) + ACCESS_MODIFIERS[i] + " " + f->compile(level + 1);
         }
         result += "\n";
     }
-    result += generateShift(level) + "};\n";
+    result += generateShift(level) + "}\n";
     return result;
 }
+
 
 //------------------------------------------------------------------------------------
 const vector<string> JavaUnit::ACCESS_MODIFIERS = { "public", "protected", "private" };
@@ -140,7 +140,7 @@ void JavaUnit::add(const shared_ptr<Unit>& unit, Flags flags)
 
 string JavaUnit::compile(unsigned int level) const
 {
-    string result = generateShift(level) + "class " + m_name + " {\n";
+    string result = generateShift(level) + "public class " + m_name + " {\n";
 
     for (size_t i = 0; i < ACCESS_MODIFIERS.size(); ++i)
     {
@@ -148,13 +148,13 @@ string JavaUnit::compile(unsigned int level) const
         {
             continue;
         }
-        result += ACCESS_MODIFIERS[i] + ":\n";
         for (const auto& f : m_fields[i])
         {
-            result += f->compile(level + 1);
+            result += generateShift(level + 1) + ACCESS_MODIFIERS[i] + " " + f->compile(level + 1);
         }
         result += "\n";
     }
-    result += generateShift(level) + "};\n";
+    result += generateShift(level) + "}\n";
     return result;
 }
+
