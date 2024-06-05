@@ -22,17 +22,17 @@ class CppFactory : public AbstractFactory
 public:
     std::shared_ptr<ClassUnit> createClassUnit(const std::string& name) const override
     {
-        return std::make_shared<ClassUnit>(name);
+        return std::make_shared<CppUnit>(name);
     }
 
     std::shared_ptr<MethodUnit> createMethodUnit(const std::string& name, const std::string& returnType, Unit::Flags flags) const override
     {
-        return std::make_shared<MethodUnit>(name, returnType, flags);
+        return std::make_shared<CppMethodUnit>(name, returnType, flags);
     }
 
     std::shared_ptr<PrintOperatorUnit> createPrintOperatorUnit(const std::string& text) const override
     {
-        return std::make_shared<PrintOperatorUnit>(text);
+        return std::make_shared<CppPOU>(text);
     }
 };
 
@@ -41,17 +41,17 @@ class CsFactory : public AbstractFactory
 public:
     std::shared_ptr<ClassUnit> createClassUnit(const std::string& name) const override
     {
-        return std::make_shared<ClassUnit>(name);
+        return std::make_shared<CSUnit>(name);
     }
 
     std::shared_ptr<MethodUnit> createMethodUnit(const std::string& name, const std::string& returnType, Unit::Flags flags) const override
     {
-        return std::make_shared<MethodUnit>(name, returnType, flags);
+        return std::make_shared<CSMethodUnit>(name, returnType, flags);
     }
 
     std::shared_ptr<PrintOperatorUnit> createPrintOperatorUnit(const std::string& text) const override
     {
-        return std::make_shared<PrintOperatorUnit>(text);
+        return std::make_shared<CSPOU>(text);
     }
 };
 
@@ -60,17 +60,17 @@ class JavaFactory : public AbstractFactory
 public:
     std::shared_ptr<ClassUnit> createClassUnit(const std::string& name) const override
     {
-        return std::make_shared<ClassUnit>(name);
+        return std::make_shared<JavaUnit>(name);
     }
 
     std::shared_ptr<MethodUnit> createMethodUnit(const std::string& name, const std::string& returnType, Unit::Flags flags) const override
     {
-        return std::make_shared<MethodUnit>(name, returnType, flags);
+        return std::make_shared<JavaMethodUnit>(name, returnType, flags);
     }
 
     std::shared_ptr<PrintOperatorUnit> createPrintOperatorUnit(const std::string& text) const override
     {
-        return std::make_shared<PrintOperatorUnit>(text);
+        return std::make_shared<JavaPOU>(text);
     }
 };
 

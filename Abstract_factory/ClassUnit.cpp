@@ -42,7 +42,7 @@ string ClassUnit::compile(unsigned int level) const
 //----------------------------------------------------------------------------------
 const vector<string> CppUnit::ACCESS_MODIFIERS = { "public", "protected", "private" };
 
-CppUnit::CppUnit(const string& name) : m_name(name)
+CppUnit::CppUnit(const string& name) :ClassUnit(name), m_name(name)
 {
     m_fields.resize(ACCESS_MODIFIERS.size());
 }
@@ -82,7 +82,7 @@ string CppUnit::compile(unsigned int level) const
 //----------------------------------------------------------------------------------
 const vector<string> CSUnit::ACCESS_MODIFIERS = { "public", "protected", "private" };
 
-CSUnit::CSUnit(const string& name) : m_name(name)
+CSUnit::CSUnit(const string& name) :ClassUnit(name), m_name(name)
 {
     m_fields.resize(ACCESS_MODIFIERS.size());
 }
@@ -122,7 +122,7 @@ string CSUnit::compile(unsigned int level) const
 //------------------------------------------------------------------------------------
 const vector<string> JavaUnit::ACCESS_MODIFIERS = { "public", "protected", "private" };
 
-JavaUnit::JavaUnit(const string& name) : m_name(name)
+JavaUnit::JavaUnit(const string& name) :ClassUnit(name), m_name(name)
 {
     m_fields.resize(ACCESS_MODIFIERS.size());
 }

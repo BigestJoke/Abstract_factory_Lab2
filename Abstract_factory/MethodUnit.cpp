@@ -35,7 +35,7 @@ string MethodUnit::compile(unsigned int level) const
 }
 
 //---------------------------------------------------------------------------
-CppMethodUnit::CppMethodUnit(const std::string& name, const std::string& returnType, Flags flags) :
+CppMethodUnit::CppMethodUnit(const std::string& name, const std::string& returnType, Flags flags) :MethodUnit(name,returnType,flags),
     m_name(name), m_returnType(returnType), m_flags(flags) { }
 
 void CppMethodUnit::add(const std::shared_ptr<Unit>& unit, Flags /* flags */)
@@ -70,7 +70,7 @@ string CppMethodUnit::compile(unsigned int level) const
 }
 
 //---------------------------------------------------------------------------
-CSMethodUnit::CSMethodUnit(const std::string& name, const std::string& returnType, Flags flags) :
+CSMethodUnit::CSMethodUnit(const std::string& name, const std::string& returnType, Flags flags) :MethodUnit(name,returnType,flags),
     m_name(name), m_returnType(returnType), m_flags(flags) { }
 
 void CSMethodUnit::add(const std::shared_ptr<Unit>& unit, Flags /* flags */)
@@ -105,7 +105,7 @@ string CSMethodUnit::compile(unsigned int level) const
 }
 
 //---------------------------------------------------------------------------
-JavaMethodUnit::JavaMethodUnit(const std::string& name, const std::string& returnType, Flags flags) :
+JavaMethodUnit::JavaMethodUnit(const std::string& name, const std::string& returnType, Flags flags) :MethodUnit(name,returnType,flags),
     m_name(name), m_returnType(returnType), m_flags(flags) { }
 
 void JavaMethodUnit::add(const std::shared_ptr<Unit>& unit, Flags /* flags */)

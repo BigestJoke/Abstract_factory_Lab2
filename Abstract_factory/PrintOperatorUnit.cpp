@@ -10,7 +10,7 @@ std::string PrintOperatorUnit::compile(unsigned int level) const
 }
 
 //------------------------------------------------------------------------------
-CppPOU::CppPOU(const std::string& text) : m_text(text) { }
+CppPOU::CppPOU(const std::string& text) :PrintOperatorUnit(text), m_text(text) { }
 
 void CppPOU::add(const std::shared_ptr<Unit>& /* unit */, Flags /* flags */) { }
 
@@ -20,7 +20,7 @@ std::string CppPOU::compile(unsigned int level) const
 }
 
 //------------------------------------------------------------------------------
-CSPOU::CSPOU(const std::string& text) : m_text(text) { }
+CSPOU::CSPOU(const std::string& text) :PrintOperatorUnit(text), m_text(text) { }
 
 void CSPOU::add(const std::shared_ptr<Unit>& /* unit */, Flags /* flags */) { }
 
@@ -30,7 +30,7 @@ std::string CSPOU::compile(unsigned int level) const
 }
 
 //------------------------------------------------------------------------------
-JavaPOU::JavaPOU(const std::string& text) : m_text(text) { }
+JavaPOU::JavaPOU(const std::string& text) :PrintOperatorUnit(text), m_text(text) { }
 
 void JavaPOU::add(const std::shared_ptr<Unit>& /* unit */, Flags /* flags */) { }
 
