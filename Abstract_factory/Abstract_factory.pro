@@ -17,6 +17,7 @@ SOURCES += \
 
 HEADERS += \
     ClassUnit.h \
+    Fabrics.h \
     MethodUnit.h \
     PrintOperatorUnit.h \
     Unit.h
