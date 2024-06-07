@@ -16,17 +16,16 @@ string generateProgram(const AbstractFactory& factory)
 
     return myClass->compile();
 }
-
 int main()
 {
-    CppFactory cppFactory;
-    cout << "C++ Code:\n" << generateProgram(cppFactory) << endl;
+    AbstractFactory *fabric = new CppFactory;
+    cout << "C++ Code:\n" << generateProgram(*fabric) << endl;
 
-    CsFactory csFactory;
-    cout << "C# Code:\n" << generateProgram(csFactory) << endl;
+    fabric = new CsFactory;
+    cout << "C# Code:\n" << generateProgram(*fabric) << endl;
 
-    JavaFactory javaFactory;
-    cout << "Java Code:\n" << generateProgram(javaFactory) << endl;
+    fabric = new JavaFactory;
+    cout << "Java Code:\n" << generateProgram(*fabric) << endl;
 
     return 0;
 }

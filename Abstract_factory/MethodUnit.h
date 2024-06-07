@@ -16,7 +16,7 @@ public:
     };
 public:
     MethodUnit(const string& name, const string& returnType, Flags flags);
-    void add(const shared_ptr<Unit>& unit, Flags /* flags */ = 0) override;
+    void add(const shared_ptr<Unit>& unit, Flags = 0) override;
     string compile(unsigned int level = 0) const override;
 private:
     string m_name;
