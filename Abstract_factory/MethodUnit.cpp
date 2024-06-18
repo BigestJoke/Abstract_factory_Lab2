@@ -45,27 +45,27 @@ void CppMethodUnit::add(const std::shared_ptr<Unit>& unit, Flags /* flags */)
 
 string CppMethodUnit::compile(unsigned int level) const
 {
-    string result = generateShift(level);
-    if (m_flags & STATIC)
+    string result = generateShift( level );
+    if( m_flags & STATIC )
     {
         result += "static ";
     }
-    else if (m_flags & VIRTUAL)
+    else if( m_flags & VIRTUAL )
     {
         result += "virtual ";
     }
     result += m_returnType + " ";
     result += m_name + "()";
-    if (m_flags & CONST)
+    if( m_flags & CONST )
     {
         result += " const";
     }
     result += " {\n";
-    for (const auto& b : m_body)
+    for( const auto& b : m_body )
     {
-        result += b->compile(level + 1);
+        result += b->compile( level + 1 );
     }
-    result += generateShift(level) + "}\n";
+    result += generateShift( level ) + "}\n";
     return result;
 }
 
@@ -80,27 +80,28 @@ void CSMethodUnit::add(const std::shared_ptr<Unit>& unit, Flags /* flags */)
 
 string CSMethodUnit::compile(unsigned int level) const
 {
-    string result = generateShift(level);
-    if (m_flags & STATIC)
+    string result = generateShift( level );
+
+    if( m_flags & STATIC )
     {
         result += "static ";
     }
-    else if (m_flags & VIRTUAL)
+    else if( m_flags & VIRTUAL )
     {
         result += "virtual ";
     }
+    else if( m_flags & OVERRIDE)
+    {
+        result += "override ";
+    }
     result += m_returnType + " ";
     result += m_name + "()";
-    if (m_flags & CONST)
-    {
-        result += " const";
-    }
     result += " {\n";
-    for (const auto& b : m_body)
+    for( const auto& b : m_body )
     {
-        result += b->compile(level + 1);
+        result += b->compile( level + 1 );
     }
-    result += generateShift(level) + "}\n";
+    result += generateShift( level ) + "}\n";
     return result;
 }
 
@@ -115,27 +116,23 @@ void JavaMethodUnit::add(const std::shared_ptr<Unit>& unit, Flags /* flags */)
 
 string JavaMethodUnit::compile(unsigned int level) const
 {
-    string result = generateShift(level);
-    if (m_flags & STATIC)
+    string result = generateShift( level );
+    if( m_flags & STATIC )
     {
         result += "static ";
     }
-    else if (m_flags & VIRTUAL)
+    if( m_flags & FINAL )
     {
-        result += "virtual ";
+        result += "final ";
     }
     result += m_returnType + " ";
     result += m_name + "()";
-    if (m_flags & CONST)
-    {
-        result += " const";
-    }
     result += " {\n";
-    for (const auto& b : m_body)
+    for( const auto& b : m_body )
     {
-        result += b->compile(level + 1);
+        result += b->compile( level + 1 );
     }
-    result += generateShift(level) + "}\n";
+    result += generateShift( level ) + "}\n";
     return result;
 }
 

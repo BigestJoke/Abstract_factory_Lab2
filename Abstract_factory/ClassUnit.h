@@ -12,7 +12,12 @@ public:
     {
         PUBLIC,
         PROTECTED,
-        PRIVATE
+        PRIVATE,
+        DEFAULT,
+        INTERNAL,
+        PROTECTED_INTERNAL,
+        PRIVATE_PROTECTED,
+        FILE
     };
     static const vector<string> ACCESS_MODIFIERS;
 public:

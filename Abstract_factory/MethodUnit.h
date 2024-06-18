@@ -10,9 +10,11 @@ class MethodUnit : public Unit
 public:
     enum Modifier
     {
-        STATIC = 1,
+        STATIC = 1 << 0,
         CONST = 1 << 1,
-        VIRTUAL = 1 << 2
+        VIRTUAL = 1 << 2,
+        OVERRIDE = 1 << 3,
+        FINAL = 1 << 4
     };
 public:
     MethodUnit(const string& name, const string& returnType, Flags flags);
@@ -51,9 +53,9 @@ class CSMethodUnit : public MethodUnit
 public:
     enum Modifier
     {
-        STATIC = 1,
-        CONST = 1 << 1,
-        VIRTUAL = 1 << 2
+        STATIC = 1 << 0,
+        VIRTUAL = 1 << 1,
+        OVERRIDE = 1 << 2,
     };
 public:
     CSMethodUnit(const string& name, const string& returnType, Flags flags);
@@ -71,9 +73,8 @@ class JavaMethodUnit : public MethodUnit
 public:
     enum Modifier
     {
-        STATIC = 1,
-        CONST = 1 << 1,
-        VIRTUAL = 1 << 2
+        STATIC = 1 << 0,
+        FINAL = 1 << 1
     };
 public:
     JavaMethodUnit(const string& name, const string& returnType, Flags flags);

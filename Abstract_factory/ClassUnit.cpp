@@ -80,7 +80,7 @@ string CppUnit::compile(unsigned int level) const
 }
 
 //----------------------------------------------------------------------------------
-const vector<string> CSUnit::ACCESS_MODIFIERS = { "public", "protected", "private" };
+const vector<string> CSUnit::ACCESS_MODIFIERS = { "public", "protected" , "private" ,"internal","protected_internal","privat_protected"};
 
 CSUnit::CSUnit(const string& name) :ClassUnit(name), m_name(name)
 {
@@ -120,7 +120,7 @@ string CSUnit::compile(unsigned int level) const
 
 
 //------------------------------------------------------------------------------------
-const vector<string> JavaUnit::ACCESS_MODIFIERS = { "public", "protected", "private" };
+const vector<string> JavaUnit::ACCESS_MODIFIERS = {"public","protected", "private","default" };
 
 JavaUnit::JavaUnit(const string& name) :ClassUnit(name), m_name(name)
 {
