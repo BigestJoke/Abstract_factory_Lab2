@@ -1,4 +1,7 @@
 #include "Unit.h"
+void Unit::add(const shared_ptr <Unit>&, Flags) {
+    throw runtime_error("Not supported");
+}
 
 string Unit::generateShift(unsigned int level) const
 {
