@@ -1,6 +1,7 @@
 #include "ClassUnit.h"
 
-const vector<string> ClassUnit::ACCESS_MODIFIERS = { "public", "protected", "private" };
+const vector<string> ClassUnit::ACCESS_MODIFIERS = { "public","protected","private","default","internal","protected_internal", "private_protected","file"
+ };
 
 ClassUnit::ClassUnit(const string& name) : m_name(name)
 {
