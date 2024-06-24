@@ -26,7 +26,7 @@ void CSPOU::add(const std::shared_ptr<Unit>& /* unit */, Flags /* flags */) { }
 
 std::string CSPOU::compile(unsigned int level) const
 {
-    return generateShift(level) + "printf( \"" + m_text + "\" );\n";
+    return generateShift(level) + "Console.WriteLine( \"" + m_text + "\" );\n";
 }
 
 //------------------------------------------------------------------------------
@@ -36,7 +36,7 @@ void JavaPOU::add(const std::shared_ptr<Unit>& /* unit */, Flags /* flags */) { 
 
 std::string JavaPOU::compile(unsigned int level) const
 {
-    return generateShift(level) + "printf( \"" + m_text + "\" );\n";
+    return generateShift(level) + "System.out.println( \"" + m_text + "\" );\n";
 }
 
 //------------------------------------------------------------------------------
